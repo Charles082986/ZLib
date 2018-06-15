@@ -21,3 +21,11 @@ end
 function ZLib.IsNumberValid(self,value)
     return value ~= nil and tonumber(value) ~= nil;
 end
+
+function ZLib.CreateIntegerList(self,minValue,maxValue)
+    local output = {};
+    for i = minValue,maxValue do
+        output[i] = i;
+    end
+    return output;
+end

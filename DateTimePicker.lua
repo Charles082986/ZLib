@@ -6,20 +6,29 @@ ZLib.DateTimePicker = {
         local frame = AceGUI:Create("SimpleGroup");
         frame:SetRelativeWidth(dWidth);
         frame.__DateTime = oOptions.DefaultValue;
+        frame.SetValue = self:__BuildSetValueHandler();
+        frame.GetValue = self:__BuildGetValueHandler();
         local pickerWidth = 0.5;
         if oOptions.Multiline then pickerWidth = 1; end
-        function frame.OnValueChanged(self,picker,dtObject,key,value,error)
-            self.__DateTime[key] = dtObject[key];
-            oCallbacks.OnValueChanged(self,picker,self.__DateTime,key,value,error);
-        end
+        frame.OnValueChanged = self:__BuildValueChangedHandler(oCallbacks);
         frame:AddChild(ZLib.DatePicker:new(AceGUI,pickerWidth,oOptions,{ OnValueChanged = frame.OnValueChanged }));
         frame:AddChild(ZLib.TimePicker:new(AceGUI,pickerWidth,oOptions,{ OnValueChanged = frame.OnValueChanged }));
         frame.DatePicker = frame.children[1];
         frame.TimePicker = frame.children[2];
-        function frame.GetValue(self) return self.__DateTime() end
-        function frame.SetValue(self,value)
-            self.DatePicker:SetValue(value);
-            self.TimePicker:SetValue(value);
+    end,
+    __BuildValueChangedHandler = function(self,oCallbacks)
+        return function(self,picker,dtObject,key,value,error)
+            self.__DateTime[key] = dtObject[key];
+            oCallbacks.OnValueChanged(self,picker,self.__DateTime,key,value,error);
+        end
+    end,
+    __BuildGetValueHandler = function()
+        return function(self) return self.__DateTime end
+    end,
+    __BuildSetValueHandler = function()
+        return function(self,value)
+            if ZLib.IsTimeValid(value) then self.TimePicker:SetValue(value); end
+            if ZLib.IsDateValid(value) then self.DatePicker:SetValue(value); end
         end
     end,
     __ValidateOptions = function(self,oOptions)
