@@ -1,9 +1,9 @@
 ZLib.Label = {
-    new = function(self,AceGUI,width,text)
+    new = function(self,AceGUI,dWidth,sText)
         if not AceGUI then AceGUI = LibStub("AceGUI-3.0"); end
         local label = AceGUI:Create("Label");
-        label:SetText(text);
-        label:SetRelativeWidth(width);
+        label:SetText(sText);
+        label:SetRelativeWidth(dWidth);
         return label;
     end
 };

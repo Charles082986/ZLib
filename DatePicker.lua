@@ -1,5 +1,5 @@
 ZLib.DatePicker = {
-    new = function(self,AceGUI,dWidth,oDefaultValue,oOptions,oCallbacks)
+    new = function(self,AceGUI,dWidth,oOptions,oCallbacks)
         local currentDate = date("*t");
         if not AceGUI then AceGUI = LibStub("AceGUI-3.0"); end
         if not oDefaultValue then oDefaultValue = currentDate; end
@@ -30,7 +30,7 @@ ZLib.DatePicker = {
         root.DayDropdown = days;
         function root.GetValue(self) return self.__Date end
         function root.SetValue(self,value)
-            if ZLib:IsValidDate(value) then
+            if ZLib:IsDateValid(value) then
                 self.YearDropdown:SetValue(value.year);
                 self.MonthDropdown:SetValue(value.month);
                 self.DayDropdown:SetValue(value.day);
@@ -41,8 +41,9 @@ ZLib.DatePicker = {
     __ValidateOptions = function(self,oOptions,currentDate)
         if not currentDate then currentDate = date("*t"); end
         if not oOptions then oOptions = {} end
-        if not oOptions.MinYear then oOptions.MinYear = 2018; end
-        if not oOptions.MaxYear then oOptions.MaxYear = currentDate.year; end
+        if not ZLib:IsNumberValid(oOptions.MinYear) then oOptions.MinYear = 2018; end
+        if not ZLib:IsNumberValid(oOptions.MaxYear) then oOptions.MaxYear = currentDate.year; end
+        if not ZLib:IsDateValid(oOptions.DefaultValue) then oOptions.DefaultValue = date("*t"); end
         return oOptions;
     end,
     __ValidateCallbacks = function(self,oCallbacks)

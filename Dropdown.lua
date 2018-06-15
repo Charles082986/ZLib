@@ -19,19 +19,19 @@ ZLib.Dropdown = {
     end,
     __ValidateOptions = function(oOptions)
         if not oOptions then oOptions = {}; end
-        if not oOptions.Values then
+        if not ZLib:IsTableValid(oOptions.Values) then
             oOptions.Values = {};
             for i = 1,10 do
                 oOptions[i] = i;
             end
         end
-        if not oOptions.ValuesOrder then
+        if not ZLib:IsTableValid(oOptions.ValuesOrder) then
             oOptions.ValuesOrder = {};
             for k,v in oOptions.Values do
                 tinsert(oOptions.ValuesOrder,k);
             end
         end
-        if not oOptions.DefaultValue then oOptions.DefaultValue = oOptions.ValuesOrder[1]; end
+        if oOptions.DefaultValue ~= nil then oOptions.DefaultValue = oOptions.ValuesOrder[1]; end
     end
 };
 ZLib.Controls["Dropdown"] = ZLib.Dropdown;

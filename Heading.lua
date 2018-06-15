@@ -4,7 +4,7 @@ ZLib.Heading = {
         local heading = AceGUI:Create("Heading");
         ZLM:Debug("Heading " .. sText,1);
         heading:SetText(sText);
-        heading:SetFullWidth(true);
+        heading:SetRelativeWidth(dWidth);
         return heading;
     end
 };

@@ -12,8 +12,8 @@ ZLib.DateTimePicker = {
             self.__DateTime[key] = dtObject[key];
             oCallbacks.OnValueChanged(self,picker,self.__DateTime,key,value,error);
         end
-        frame:AddChild(ZLib.DatePicker:new(AceGUI,pickerWidth,oOptions.DefaultValue,oOptions,{ OnValueChanged = frame.OnValueChanged }));
-        frame:AddChild(ZLib.TimePicker:new(AceGUI,pickerWidth,oOptions.DefaultValue,oOptions,{ OnValueChanged = frame.OnValueChanged }));
+        frame:AddChild(ZLib.DatePicker:new(AceGUI,pickerWidth,oOptions,{ OnValueChanged = frame.OnValueChanged }));
+        frame:AddChild(ZLib.TimePicker:new(AceGUI,pickerWidth,oOptions,{ OnValueChanged = frame.OnValueChanged }));
         frame.DatePicker = frame.children[1];
         frame.TimePicker = frame.children[2];
         function frame.GetValue(self) return self.__DateTime() end
@@ -25,7 +25,7 @@ ZLib.DateTimePicker = {
     __ValidateOptions = function(self,oOptions)
         if not oOptions then oOptions = {}; end
         if not oOptions.Multiline then oOptions.Multiline = false; end
-        if not oOptions.DefaultValue then oOptions.DefaultValue = date("*t"); end
+        if not ZLib:IsDateTimeValid(oOptions.DefaultValue) then oOptions.DefaultValue = date("*t"); end
         return oOptions;
     end,
     __ValidateCallbacks = function(self,oCallbacks)
