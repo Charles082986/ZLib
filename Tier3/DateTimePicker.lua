@@ -22,14 +22,10 @@ ZLib.DateTimePicker = {
             oCallbacks.OnValueChanged(self,picker,self.__DateTime,key,value,error);
         end
     end,
-    __BuildGetValueHandler = function()
-        return function(self) return self.__DateTime end
-    end,
-    __BuildSetValueHandler = function()
-        return function(self,value)
-            if ZLib.IsTimeValid(value) then self.TimePicker:SetValue(value); end
-            if ZLib.IsDateValid(value) then self.DatePicker:SetValue(value); end
-        end
+    __BuildGetValueHandler = function(self) return self.__DateTime end,
+    __SetValueHandler = function(self,value)
+        if ZLib.IsTimeValid(value) then self.TimePicker:SetValue(value); end
+        if ZLib.IsDateValid(value) then self.DatePicker:SetValue(value); end
     end,
     __ValidateOptions = function(self,oOptions)
         if not oOptions then oOptions = {}; end
@@ -40,6 +36,31 @@ ZLib.DateTimePicker = {
     __ValidateCallbacks = function(self,oCallbacks)
         if not oCallbacks then oCallbacks = {}; end
         if not oCallbacks.OnValueChanged then oCallbacks.OnVlaueChanged = function() end end;
+    end,
+    __SetDatePast = function(self,oDate)
+        local multipliers = {
+            sec = 1,
+            minute = 60,
+            hour = 3600,
+            day = 86400
+        }
+        local d = date("*t");
+        local t = time(d);
+        for k,v in pairs(oDate) do
+            local m = multipliers[k];
+            if not not m then
+                t = t - (m * v);
+            end
+        end
+        d = date("*t",t);
+        if oDate.DayState ~= nil then
+            if oDate.DayState == 0 then
+                d.sec = 0; d.minute = 0; d.hour = 0;
+            else
+                d.sec = 59; d.minute = 59; d.hour = 23;
+            end
+        end
+        self:SetValue(d);
     end
 };
 ZLib.Controls["DateTimePicker"] = ZLib.DateTimePicker;

@@ -21,11 +21,37 @@ end
 function ZLib.IsNumberValid(self,value)
     return value ~= nil and tonumber(value) ~= nil;
 end
-
+function ZLib.IsStringValid(self,value)
+    return value ~= nil and ZLib.trim(value):len() > 0
+end
+function ZLib.trim(self,s)
+    -- from PiL2 20.4
+    return (s:gsub("^%s*(.-)%s*$", "%1"))
+end
 function ZLib.CreateIntegerList(self,minValue,maxValue)
     local output = {};
     for i = minValue,maxValue do
         output[i] = i;
     end
     return output;
+end
+function ZLib.MakeTooltip(self,link)
+    GameTooltip:SetOwner(self,"ANCHOR_CURSOR");
+    GameTooltip:SetHyperlink(link);
+    GameTolltip:Show();
+end
+function ZLib.ClearTooltip(self)
+    GameTooltip:Hide();
+end
+function ZLib.GetFullName(self,name)
+    if type(name) ~= "string" then
+        return nil;
+    end
+    if string.match(name," ") then
+        name = nil;  -- not a character, skip it.
+    elseif string.match(name,"-") then -- Name already full, do nothing :)
+    else
+        name = name .. "-" .. GetRealmName(); -- Name needs some TLC. Might accidentally get NPC's with one name. Oh well lol.
+    end
+    return name;
 end

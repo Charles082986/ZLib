@@ -2,6 +2,8 @@ ZLib.Table = {
     new = function(self,AceGUI,dWidth,oTableStructure,oOptions)
         if not AceGUI then AceGUI = LibStub("AceGUI-3.0"); end
         local root = AceGUI:Create("SimpleGroup");
+        root.SetRelativeWidth(dWidth);
+        root.SetLayout("Flow");
         root.Header = self:__BuildHeaderRow(AceGUI,oTableStructure);
         root.Data = self:__BuildTableData(self,AceGUI,oTableStructure);
         root.AddRow = self:__BuildAddRowFunction();
@@ -11,29 +13,35 @@ ZLib.Table = {
     end,
     __BuildCell = function(self,AceGUI,type,oCellOptions)
         if not AceGUI then AceGUI = LibStub("AceGUI-3.0"); end
+        local container = AceGUI:Create("InlineFrame");
+        container:SetRelativeWidth(oCellOptions.Width);
+        container:SetLayout("Flow");
+        local control;
         if type == "Button" then
-            return ZLib.Button:new(AceGUI,oCellOptions.Width,oCellOptions.Text,oCellOptions.Callbacks);
+            control = ZLib.Button:new(AceGUI,1,oCellOptions.Text,oCellOptions.Callbacks);
         elseif type == "CheckBox" then
-            return ZLib.CheckBox:new(AceGUI,oCellOptions.DefaultValue,oCellOptions.Callbacks);
+            control = ZLib.CheckBox:new(AceGUI,oCellOptions.DefaultValue,oCellOptions.Callbacks);
         elseif type == "DatePicker" then
-            return ZLib.DatePicker:new(AceGUI,oCellOptions.Width,oCellOptions,oCellOptions.Callbacks);
+            control = ZLib.DatePicker:new(AceGUI,1,oCellOptions,oCellOptions.Callbacks);
         elseif type == "DateTimePicker" then
-            return ZLib.DateTimePicker:new(AceGUI,oCellOptions.Width,oCellOptions,oCellOptions.Callbacks);
+            control = ZLib.DateTimePicker:new(AceGUI,1,oCellOptions,oCellOptions.Callbacks);
         elseif type == "Dropdown" then
-            return ZLib.Dropdown:new(AceGUI,oCellOptions.Width,oCellOptions,oCellOptions.Callbacks);
+            control = ZLib.Dropdown:new(AceGUI,1,oCellOptions,oCellOptions.Callbacks);
         elseif type == "EditBox" then
-            return ZLib.EditBox:new(AceGUI,oCellOptions.Width,oCellOptions.DefaultValue,oCellOptions.Callbacks);
+            control = ZLib.EditBox:new(AceGUI,1,oCellOptions.DefaultValue,oCellOptions.Callbacks);
         elseif type == "Heading" then
-            return ZLib.Heading:new(AceGUI,oCellOptions.Width,oCellOptions.Text);
+            control = ZLib.Heading:new(AceGUI,1,oCellOptions.Text);
         elseif type == "InteractiveLabel" then
-            return ZLib.InteractiveLabel:new(AceGUI,oCellOptions.Width,oCellOptions.Text,oCellOptions.Callbacks);
+            control = ZLib.InteractiveLabel:new(AceGUI,1,oCellOptions.Text,oCellOptions.Callbacks);
         elseif type == "Label" then
-            return ZLib.Label:new(AceGUI,oCellOptions.Width,oCellOptions.Text);
+            control = ZLib.Label:new(AceGUI,1,oCellOptions.Text);
         elseif type == "Slider" then
-            return ZLib.Slider:new(AceGUI,oCellOptions.Width,oCellOptions,oCellOptions.Callbacks)
+            control = ZLib.Slider:new(AceGUI,1,oCellOptions,oCellOptions.Callbacks)
         elseif type == "TimePicker" then
-            return ZLib.TimePicker:new(AceGUI,oCellOptions.Width,oCellOptions,oCellOptions.Callbacks);
+            control = ZLib.TimePicker:new(AceGUI,1,oCellOptions,oCellOptions.Callbacks);
         end
+        container:AddChild(control);
+        return container;
     end,
     __BuildAddRowFunction = function()
         return function(self,AceGUI,values)
@@ -41,9 +49,9 @@ ZLib.Table = {
             local row = AceGUI:Create("SimpleGroup");
             for i,v in ipairs(self.__TableStructure) do
                 v.DefaultValue = values[i];
-                row:AddChild(self:__BuildCell(AceGUI,v.Type,v));
+                row:AddChild(ZLib.Table:__BuildCell(AceGUI,v.Type,v));
             end
-            self.Data:AddChild(row);
+            self.Data.ScrollContainer.RowsContainer:AddChild(row);
             return row;
         end
     end,
@@ -63,7 +71,28 @@ ZLib.Table = {
         data:SetRelativeWidth(1);
         data:SetFullHeight(true);
         data:SetLayout("Flow");
+        data.ScrollContainer = self:__BuildScrollContainer(AceGUI);
+        data:AddChild(data.ScrollContainer);
         return data;
+    end,
+    __BuildScrollContainer = function(self,AceGUI)
+        if not AceGUI then AceGUI = LibStub("AceGUI-3.0"); end
+        local scroll = AceGUI:Create("ScrollFrame");
+        scroll:SetLayout("List");
+        scroll:SetFullWidth(true);
+        scroll:SetFulLHeight(true);
+        local rows = self:__BuildRowContainer(AceGUI);
+        scroll:AddChild(rows);
+        scroll.RowsContainer = rows;
+        return scroll;
+    end,
+    __BuildRowContainer = function(self,AceGUI)
+        if not AceGUI then AceGUI = LibStub("AceGUI-3.0"); end
+        local rows = AceGUI:Create("InlineGroup");
+        rows:SetFullWidth(true);
+        rows:SetFullHeight(true);
+        rows:SetLayout("Flow");
+        return rows;
     end,
     __BuildRemoveRowFunction = function()
         return function(self,rowIndex)
