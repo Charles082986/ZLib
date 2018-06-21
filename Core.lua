@@ -44,14 +44,45 @@ function ZLib.ClearTooltip(self)
     GameTooltip:Hide();
 end
 function ZLib.GetFullName(self,name)
-    if type(name) ~= "string" then
+    if type(name) ~= "string" or type(realm) ~= "string" or string.match(name," ") then
         return nil;
     end
-    if string.match(name," ") then
-        name = nil;  -- not a character, skip it.
-    elseif string.match(name,"-") then -- Name already full, do nothing :)
+    if string.match(name,"-") then -- Name already full, do nothing :)
+        return name;
     else
-        name = name .. "-" .. GetRealmName(); -- Name needs some TLC. Might accidentally get NPC's with one name. Oh well lol.
+        return name .. "-" .. GetRealmName(); -- Name needs some TLC. Might accidentally get NPC's with one name. Oh well lol.
     end
-    return name;
+end
+function ZLib.GetMatch(self,table,value,property)
+    if table == nil or value == nil then return nil; end
+    if property == nil then
+        for z = 1,#(table) do
+            if table[z] == value then return table[z]; end
+        end
+    else
+        for z = 1,#(table) do
+            if table[z][property] == value then return table[z]; end
+        end
+    end
+    return false;
+end
+function ZLib.TransformAssosiativeArray(self,table,callback,...)
+    if table == nil or callback == nil then return nil; end
+    local args = {...};
+    local output = {};
+    local i = 1;
+    for k,v in pairs(table) do
+        tinsert(output,callback(k,v,i,unpack(args)));
+        i = i + 1;
+    end
+    return output;
+end
+function ZLib.TransformArray(self,table,callback,...)
+    if table == nil or callback == nil then return nil; end
+    local args = {...}
+    local output = {};
+    for i,v in ipairs(table) do
+        tinsert(output,callback(i,v,unpack(args)));
+    end
+    return output;
 end

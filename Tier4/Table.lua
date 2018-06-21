@@ -7,6 +7,7 @@ ZLib.Table = {
         root.Header = self:__BuildHeaderRow(AceGUI,oTableStructure);
         root.Data = self:__BuildTableData(self,AceGUI,oTableStructure);
         root.AddRow = self:__BuildAddRowFunction();
+        root.RemoveRow = self:__BuidlRemoveRowFunction();
         root:AddChild(root.Header);
         root:AddChild(root.Data);
         root.Clear = self.__Clear;
@@ -97,12 +98,13 @@ ZLib.Table = {
     end,
     __BuildRemoveRowFunction = function()
         return function(self,rowIndex)
-            tremove(self.Data.children,rowIndex);
+            self.Data.ScrollContainer.RowsContainer.children[rowIndex]:ReleaseWidget();
+            --tremove(self.Data.ScrollContainer.RowsContainer.children,rowIndex);
             self.Data:DoLayout();
         end
     end,
     __Clear = function(self)
-        self:ReleaseChildren();
+        self.Data.ScrollContainer.RowsContainer:ReleaseChildren();
     end
 }
 
