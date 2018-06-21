@@ -22,7 +22,7 @@ ZLib.DateTimePicker = {
             oCallbacks.OnValueChanged(self,picker,self.__DateTime,key,value,error);
         end
     end,
-    __BuildGetValueHandler = function(self) return self.__DateTime end,
+    __GetValueHandler = function(self) return self.__DateTime end,
     __SetValueHandler = function(self,value)
         if ZLib.IsTimeValid(value) then self.TimePicker:SetValue(value); end
         if ZLib.IsDateValid(value) then self.DatePicker:SetValue(value); end

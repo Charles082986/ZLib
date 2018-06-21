@@ -9,6 +9,7 @@ ZLib.Table = {
         root.AddRow = self:__BuildAddRowFunction();
         root:AddChild(root.Header);
         root:AddChild(root.Data);
+        root.Clear = self.__Clear;
         return root;
     end,
     __BuildCell = function(self,AceGUI,type,oCellOptions)
@@ -99,6 +100,9 @@ ZLib.Table = {
             tremove(self.Data.children,rowIndex);
             self.Data:DoLayout();
         end
+    end,
+    __Clear = function(self)
+        self:ReleaseChildren();
     end
 }
 
