@@ -24,6 +24,19 @@
 |CheckBox|```ZLib.CheckBox:new(AceGUI,dWidth,bDefaultValue,oCallbacks)```|```AceGUI``` = an instance of LibStub("AceGUI-3.0").<br/>```dWidth``` = a decimal value between 0 and 1 that represents the portion of the row the checkbox will occupy.<br/>```bDefaultValue``` = A boolean value to set whether or not the checkbox is checked.<br/>```oCallbacks``` = an assosiative array contianing the necessary callbacks for the checkbox.  Callbacks supported are OnValueChanged, OnEnter, and OnLeave.|
 |Dropdown|```ZLib.Dropdown:new(AceGUI,dWidth,oOptions,oCallbacks)```|```AceGUI``` = an instance of LibStub("AceGUI-3.0").<br/>```dWidth``` = a decimal value between 0 and 1 that represents the portion of the row the dropdown will occupy.<br/>```oOptions``` = An associative array of data for the dropdown.  See [Dropdown Options](#dropdown-options).<br/>```oCallbacks``` = an assosiative array contianing the necessary callbacks for the dropdown.  Callbacks supported are OnValueChanged, OnEnter, and OnLeave.|
 |EditBox|```ZLib.EditBox:new(AceGUI,dWidth,sDefaultValue,oCallbacks)```|```AceGUI``` = an instance of LibStub("AceGUI-3.0").<br/>```dWidth``` = a decimal value between 0 and 1 that represents the portion of the row the editbox will occupy.<br/>```sDefaultValue``` = The text the editbox will contain when it is created.<br/>```oCallbacks``` = an assosiative array contianing the necessary callbacks for the editbox.  Callbacks supported are OnEnterPressed, OnEnter, and OnLeave.|
+|Heading|a|a|
+|Interactive Label| a|a |
+|Label| a| a|
+|Slider| a|a |
+
+### Complex Object Constructors
+| Object | Constructor | Arguments |
+|---|---|---|
+|DatePicker|||
+|DateTimePicker|||
+|Table||||
+|TimePicker|||
+
 
 #### Dropdown Options
  * Values = An associative array that represents the options in the dropdown.  The values in the associative array are the display text, and the keys are set as the dropdown's value when an option is chosen.
