@@ -15,3 +15,16 @@
 |```ZLib:ClearTooltip()```||Clears the current tooltip.|
 |```ZLib:GetFullName(sName)```|```sName``` = name of the player.|Returns a unit name in name-realm format.|
 |```ZLib:GetMatch(aTable,value[,sProperty])```|```aTable``` = The collection of values that may contain a match.<br/>```value``` = Value for which you are looking.<br/>```sProperty``` *OPTIONAL* = the name of the property to check against the ```value``` argument.  Required for assosiative arrays.|Returns the value of the first match.|
+
+
+### Simple Object Constructors
+| Object | Constructor | Arguments |
+|---|---|---|
+|Button|```ZLib.Button:new(AceGUI,dWidth,sText,oCallbacks)```|```AceGUI``` = an instance of LibStub("AceGUI-3.0").<br/>```dWidth``` = a decimal value between 0 and 1 that represents the portion of the row the button will occupy.<br/>```sText``` = The text on the button.<br/>```oCallbacks``` = an assosiative array contianing the necessary callbacks for the button.  Callbacks supported are OnEnter, OnClick, and OnLeave.|
+|CheckBox|```ZLib.CheckBox:new(AceGUI,dWidth,bDefaultValue,oCallbacks)```|```AceGUI``` = an instance of LibStub("AceGUI-3.0").<br/>```dWidth``` = a decimal value between 0 and 1 that represents the portion of the row the button will occupy.<br/>```bDefaultValue``` = A boolean value to set whether or not the checkbox is checked.<br/>```oCallbacks``` = an assosiative array contianing the necessary callbacks for the button.  Callbacks supported are OnValueChanged, OnEnter, and OnLeave.|
+|Dropdown|```ZLib.Dropdown:new(AceGUI,dWidth,oOptions,oCallbacks)```|```AceGUI``` = an instance of LibStub("AceGUI-3.0").<br/>```dWidth``` = a decimal value between 0 and 1 that represents the portion of the row the button will occupy.<br/>```oOptions``` = An associative array of data for the dropdown.  See [Dropdown Options](#dropdown-options).<br/>```oCallbacks``` = an assosiative array contianing the necessary callbacks for the button.  Callbacks supported are OnValueChanged, OnEnter, and OnLeave.|
+
+#### Dropdown Options
+ * Values = An associative array that represents the options in the dropdown.  The values in the associative array are the display text, and the keys are set as the dropdown's value when an option is chosen.
+ * ValuesOrder = A standard array of keys in from the Values table in the order you wish them to appear in the drop down list.
+ * Default Value = The key of the option you wish to have selected when the control is created.
