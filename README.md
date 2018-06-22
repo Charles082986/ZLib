@@ -27,7 +27,7 @@
 |Heading|```ZLib.Heading:new(AceGUI,dWidth,sText)|```AceGUI``` = an instance of LibStub("AceGUI-3.0").<br/>```dWidth``` = a decimal value between 0 and 1 that represents the portion of the row the heading will occupy.<br/>```sText``` = The text of the heading.|
 |Interactive Label|```ZLib.InteractiveLabel:new(AceGUI,dWidth,sText,oCallbacks)```|```AceGUI``` = an instance of LibStub("AceGUI-3.0").<br/>```dWidth``` = a decimal value between 0 and 1 that represents the portion of the row the interactive label will occupy.<br/>```sText``` = The text the interactive label.<br/>```oCallbacks``` = an assosiative array contianing the necessary callbacks for the interactive label.  Callbacks supported are OnClick, OnEnter, and OnLeave.|
 |Label|```ZLib.Heading:new(AceGUI,dWidth,sText)|```AceGUI``` = an instance of LibStub("AceGUI-3.0").<br/>```dWidth``` = a decimal value between 0 and 1 that represents the portion of the row the label will occupy.<br/>```sText``` = The text of the label.|
-|Slider|```ZLib.Slider:new(AceGUI,dWidth,oOptions,oCallbacks)```|```AceGUI``` = an instance of LibStub("AceGUI-3.0").<br/>```dWidth``` = a decimal value between 0 and 1 that represents the portion of the row the label will occupy.<br/>```oOptions``` = An associative array of data for the slider. See [Slider Options]{#slider-options)|
+|Slider|```ZLib.Slider:new(AceGUI,dWidth,oOptions,oCallbacks)```|```AceGUI``` = an instance of LibStub("AceGUI-3.0").<br/>```dWidth``` = a decimal value between 0 and 1 that represents the portion of the row the label will occupy.<br/>```oOptions``` = An associative array of data for the slider. See [Slider Options]{#slider-options).<br/>```oCallbacks``` = an associative array containing the necessary callbacks for the slider.  Callbacks supported are OnValueChanged.|
 
 ### Complex Object Constructors
 | Object | Constructor | Arguments |
@@ -42,3 +42,10 @@
  * Values = An associative array that represents the options in the dropdown.  The values in the associative array are the display text, and the keys are set as the dropdown's value when an option is chosen.
  * ValuesOrder = A standard array of keys in from the Values table in the order you wish them to appear in the drop down list.
  * Default Value = The key of the option you wish to have selected when the control is created.
+ 
+ #### Slider Options
+* Label = Text for the slider's built-in label.
+* Min = The minimum value the slider will represent.
+* Max = The maximum value the slider will represent.
+* Step = The increment value of each step of the slider.
+* DefaultValue = The default value of the slider when it is created.
