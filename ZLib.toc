@@ -1,0 +1,10 @@
+## Interface: 70300
+## Title: ZLib
+## Notes: Zatenkeins common function library
+## Author: Zatenkein
+## Version: 0.1
+
+
+ZLib.xml
+
+
