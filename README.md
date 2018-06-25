@@ -42,25 +42,25 @@ This is a single button that executes it's OnClick event when the button is clic
 
 #### oCallbacks
 ##### OnClick
-Stub: function(button)
+Stub: function(control)
 
 |Arguments|Type|Description|
 |---|---|---|
-|button|object|A reference to the button that called this callback.|
+|control|object|A reference to the control that called this callback.|
 
 ##### OnEnter (Optional)
-Stub: function(buttion)
+Stub: function(control)
 
 |Arguments|Type|Description|
 |---|---|---|
-|button|object|A reference to the button that called this callback.|
+|control|object|A reference to the control that called this callback.|
 
 ##### OnLeave (Optional)
-Stub: function(buttion)
+Stub: function(control)
 
 |Arguments|Type|Description|
 |---|---|---|
-|button|object|A reference to the button that called this callback.|
+|control|object|A reference to the control that called this callback.|
 
 ### CheckBox
 Constructor: ZLib.CheckBox:new(AceGUI,dWidth,bDefaultValue,oCallbacks)
@@ -75,7 +75,13 @@ Constructor: ZLib.CheckBox:new(AceGUI,dWidth,bDefaultValue,oCallbacks)
 
 #### oCallbacks
 ##### OnValueChanged
-Stub: function(checkbox,_,value)\
+Stub: function(control,_,value)
+
+|Arguments|Type|Description|
+|---|---|---|
+|control|object|A reference to the control that called this callback.|
+|_|?|Unknown|
+|value|boolean|The new value of the control.
 
 
 
