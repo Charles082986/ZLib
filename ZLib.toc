@@ -6,5 +6,8 @@
 
 
 ZLib.xml
-
+Tier1\Tier1.xml
+Tier2\Tier2.xml
+Tier3\Tier3.xml
+Tier4\Tier4.xml
 

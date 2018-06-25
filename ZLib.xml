@@ -3,8 +3,4 @@
     <Script file="Debug.lua"/>
     <Script file="Semaphore.lua"/>
     <Script file="Wait.lua"/>
-    <Include file="Tier1/Tier1.xml"/>
-    <Include file="Tier2/Tier2.xml"/>
-    <Include file="Tier3/Tier3.xml"/>
-    <Include file="Tier4/Tier4.xml"/>
 </Ui>
