@@ -1,7 +1,8 @@
 # ZLib
 ## Contents
 
-* [Helper Functions](#helper-functions)
+|[Helper Functions](#helper-functions)|
+|---|
 
 |[Simple Objects](#simple-objects)||
 |---|---|
@@ -17,6 +18,9 @@
 |[Table](#table)|[TimePicker](#timepicker)|
 
 ## Helper Functions
+|[Back To Top](#zlib)|
+|---|
+
 |Helper Functions|Parameters|Description|
 |---|---|---|
 |```ZLib:IsDateValid(oDate)```|```oDate``` = date object, such as returned by ```date("*t")```| Returns true if the oDate argument is in the appropriate format and is a valid date.  Checks the ```year```, ```month```, and ```day``` properties.|
@@ -33,8 +37,13 @@
 |```ZLib:GetMatch(aTable,value[,sProperty])```|```aTable``` = The collection of values that may contain a match.<br/>```value``` = Value for which you are looking.<br/>```sProperty``` *OPTIONAL* = the name of the property to check against the ```value``` argument.  Required for assosiative arrays.|Returns the value of the first match.|
 
 ## Simple Objects
+|[Back To Top](#zlib)|
+|---|
 
-### Button 
+### Button
+|[Back To Top](#zlib)|
+|---|
+
 Constructor: ZLib.Button:new(AceGUI,dWidth,sText,oCallbacks)
 This is a single button that executes it's OnClick event when the button is clicked.
 
@@ -69,6 +78,9 @@ Stub: function(control)
 |control|object|A reference to the control that called this callback.|
 
 ### CheckBox
+|[Back To Top](#zlib)|
+|---|
+
 Constructor: ZLib.CheckBox:new(AceGUI,dWidth,bDefaultValue,oCallbacks)
 
 #### Arguments
@@ -104,6 +116,9 @@ Stub: function(control)
 |control|object|A reference to the control that called this callback.|
 
 ### Dropdown
+|[Back To Top](#zlib)|
+|---|
+
 Constructor: ZLib.Dropdown:new(AceGUI,dWidth,oOptions,oCallbacks)
 
 #### Arguments
@@ -146,6 +161,9 @@ Stub: function(control)
 |control|object|A reference to the control that called this callback.|
 
 ### EditBox
+|[Back To Top](#zlib)|
+|---|
+
 Constructor: ZLib.EditBox:new(AceGUI,dWidth,sDefaultValue,oCallbacks)
 
 |Argument|Type|Description|
@@ -180,6 +198,9 @@ Stub: function(control)
 |control|object|A reference to the control that called this callback.|
 
 ### Frame
+|[Back To Top](#zlib)|
+|---|
+
 Constructor: ZLib.Frame:new(AceGUI,sLayout,sTitle)
 
 |Argument|Type|Description|
@@ -196,6 +217,9 @@ Syntax: frame:Toggle();\
 Automatically toggles the visibility of the frame.
 
 ### Heading
+|[Back To Top](#zlib)|
+|---|
+
 Constructor: ZLib.Heading:new(AceGUI,dWidth,sText)
 
 |Argument|Type|Description|
@@ -205,6 +229,9 @@ Constructor: ZLib.Heading:new(AceGUI,dWidth,sText)
 |sText|string|The text of the heading.|
 
 ### InteractiveLabel
+|[Back To Top](#zlib)|
+|---|
+
 Constructor: ZLib.InteractiveLabel:new(AceGUI,dWidth,sText,oCallbacks)
 
 |Argument|Type|Description|
@@ -237,6 +264,9 @@ Stub: function(control)
 |control|object|A reference to the control that called this callback.|
 
 ### Label
+|[Back To Top](#zlib)|
+|---|
+
 Constructor: ZLib.Label:new(AceGUI,dWidth,sText)
 
 |Argument|Type|Description|
@@ -246,6 +276,9 @@ Constructor: ZLib.Label:new(AceGUI,dWidth,sText)
 |sText|string|The text of the control.|
 
 ### Slider
+|[Back To Top](#zlib)|
+|---|
+
 Constructor: ZLib.Slider:new(AceGUI,dWidth,oOptions,oCallbacks)
 
 |Argument|Type|Description|
@@ -275,8 +308,21 @@ Stub: function(control,_,value)
 
 
 ## Complex Objects
+|[Back To Top](#zlib)|
+|---|
 
 ### DatePicker
+|[Back To Top](#zlib)|
+|---|
+
 ### DateTimePicker
+|[Back To Top](#zlib)|
+|---|
+
 ### Table
+|[Back To Top](#zlib)|
+|---|
+
 ### TimePicker
+|[Back To Top](#zlib)|
+|---|
