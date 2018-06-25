@@ -1,4 +1,10 @@
 # ZLib
+
+|Links||
+|---|---|
+|Discord|https://discord.gg/bfrhABD|
+|Curseforge|https://wow.curseforge.com/projects/zlib|
+
 ## Contents
 
 |[Helper Functions](#helper-functions)|
