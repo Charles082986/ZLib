@@ -7,6 +7,8 @@ ZLib.EditBox = {
         input:SetRelativeWidth(dWidth);
         input:SetText(sDefaultValue);
         input:SetCallback("OnEnterPressed",oCallbacks.OnEnterPressed);
+        if oCallbacks.OnEnter then input:SetCallback("OnEnter",oCallbacks.OnEnter); end
+        if oCallbacks.OnLeave then input:SetCallback("OnEnter",oCallbacks.OnLeave); end
         return input;
     end,
     __ValidateCallbacks = function(self,oCallbacks)

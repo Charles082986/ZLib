@@ -4,9 +4,11 @@ ZLib.EmptyFunction = function() end;
 function ZLib.IsDateValid(self,date)
     return date ~= nil and date.month ~= nil and date.day ~= nil and date.year ~= nil and date.month >= 1 and date.month <= 12 and date.month % 1 == 0
             and (date.day <= 28
+
                 or (date.day <= 30 and date.month ~= 2)
                 or (date.day == 30 and (date.month == 4 or date.month == 6 or date.month == 9 or date.month == 11))
-                or (date.day == 31 and (date.month == 1 or date.month == 3 or date.month == 5 or date.month == 7 or date.month == 8 or date.month == 10 or date.month == 12)));
+                or (date.day == 31 and (date.month == 1 or date.month == 3 or date.month == 5 or date.month == 7 or date.month == 8 or date.month == 10 or date.month == 12))
+                or (date.day == 29 and date.year % 4 == 0));
 end
 function ZLib.IsDateTimeValid(self,dateTime)
     return self:IsDateValid(dateTime) and self:IsTimeValid(dateTime);
@@ -22,9 +24,9 @@ function ZLib.IsNumberValid(self,value)
     return value ~= nil and tonumber(value) ~= nil;
 end
 function ZLib.IsStringValid(self,value)
-    return value ~= nil and ZLib.trim(value):len() > 0
+    return value ~= nil and ZLib.Trim(value):len() > 0
 end
-function ZLib.trim(self,s)
+function ZLib.Trim(self,s)
     -- from PiL2 20.4
     return (s:gsub("^%s*(.-)%s*$", "%1"))
 end

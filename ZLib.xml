@@ -1,5 +1,8 @@
 <Ui xmlns="http://www.blizzard.com/wow/ui/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.blizzard.com/wow/ui/ ..\FrameXML\UI.xsd">
     <Script file="Core.lua"/>
+    <Script file="Debug.lua"/>
+    <Script file="Semaphore.lua"/>
+    <Script file="Wait.lua"/>
     <Include file="Tier1/Tier1.xml"/>
     <Include file="Tier2/Tier2.xml"/>
     <Include file="Tier3/Tier3.xml"/>
