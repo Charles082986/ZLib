@@ -75,7 +75,8 @@ Constructor: ZLib.CheckBox:new(AceGUI,dWidth,bDefaultValue,oCallbacks)
 
 #### oCallbacks
 ##### OnValueChanged
-Stub: function(checkbox,______,value)
+Stub: function(checkbox,_,value)\
+
 
 
 ### Complex Object Constructors
