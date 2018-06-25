@@ -304,7 +304,7 @@ Stub: function(control,_,value)
 |---|---|---|
 |control|object|A reference to the control that called this callback.|
 |_|?|Unknown|
-|value|boolean|The new value of the control.
+|value|boolean|The new value of the control.|
 
 
 ## Complex Objects
@@ -314,6 +314,49 @@ Stub: function(control,_,value)
 ### DatePicker
 |[Back To Top](#zlib)|
 |---|
+
+Constructor: ZLib.DatePicker:new(AceGUI,dWidth,oOptions,oCallbacks)
+
+|Argument|Type|Description|
+|---|---|---|
+|AceGUI|object|An instance of LibStub("AceGUI-3.0").|
+|dWidth|decimal|A decimal value that represents the relative width of the control within it's parent row.|
+|oOptions|object|An object containing the data for the control.|
+|oCallbacks|object|An object that defines the OnValueChanged callback.|
+
+#### oOptions
+|Property|Type|Description|
+|---|---|---|
+|MinYear|number|The minimum year the datepicker will allow.|
+|MaxYear|number|The maximum value the slider can represent.|
+|DefaultValue|object|The date object ({ year: 1990, month: 2, day: 10 }) representing the value the control should have when it is created.|
+
+#### oCallbacks
+##### OnValueChanged
+Stub: function(control,oDate,sPropertyChanged,iValue)
+
+|Arguments|Type|Description|
+|---|---|---|
+|control|object|A reference to the control that called this callback.|
+|oDate|object|A date object representing the new value of the control.|
+|sPropertyChanged|string|The date component that changed.  Possible values are "year", "month", or "day".|
+|iValue|integer|The new value of the property that was changed.|
+|sError|string|The error message of there is one, otherwise, nil.|
+
+#### Functions
+##### GetValue
+Syntax: datePicker:GetValue();\
+Returns the date object value of the DatePicker.
+
+##### SetValue
+Syntax: datePicker:SetValue(oDate);
+
+|Arguments|Type|Description|
+|---|---|---|
+|oDate|object|A date object value that represents the intended date for the date picker.|
+
+
+
 
 ### DateTimePicker
 |[Back To Top](#zlib)|
@@ -326,3 +369,41 @@ Stub: function(control,_,value)
 ### TimePicker
 |[Back To Top](#zlib)|
 |---|
+
+Constructor: ZLib.DatePicker:new(AceGUI,dWidth,oOptions,oCallbacks)
+
+|Argument|Type|Description|
+|---|---|---|
+|AceGUI|object|An instance of LibStub("AceGUI-3.0").|
+|dWidth|decimal|A decimal value that represents the relative width of the control within it's parent row.|
+|oOptions|object|An object containing the data for the control.|
+|oCallbacks|object|An object that defines the OnValueChanged callback.|
+
+#### oOptions
+|Property|Type|Description|
+|---|---|---|
+|DefaultValue|object|The time object ({ hour: 20, min: 14, sec: 44 }) representing the value the control should have when it is created.|
+
+#### oCallbacks
+##### OnValueChanged
+Stub: function(control,oTime,sPropertyChanged,iValue)
+
+|Arguments|Type|Description|
+|---|---|---|
+|control|object|A reference to the control that called this callback.|
+|oTime|object|A time object representing the new value of the control.|
+|sPropertyChanged|string|The date component that changed.  Possible values are "year", "month", or "day".|
+|iValue|integer|The new value of the property that was changed.|
+|sError|string|The error message of there is one, otherwise, nil.|
+
+#### Functions
+##### GetValue
+Syntax: timepicker:GetValue();\
+Returns the date object value of the TimePicker.
+
+##### SetValue
+Syntax: timepicker:SetValue(oTime);
+
+|Arguments|Type|Description|
+|---|---|---|
+|oTime|object|A time object value that represents the intended time for the time picker.|
