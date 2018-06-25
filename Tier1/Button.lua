@@ -7,7 +7,7 @@ ZLib.Button = {
         button:SetText(sText);
         button:SetCallback("OnClick", oCallbacks.OnClick);
         if oCallbacks.OnEnter then button:SetCallback("OnEnter",oCallbacks.OnEnter); end
-        if oCallbacks.OnLEave then button:SetCallback("OnLeave",oCallbacks.OnLeave); end
+        if oCallbacks.OnLeave then button:SetCallback("OnLeave",oCallbacks.OnLeave); end
         button:SetRelativeWidth(dWidth);
         return button;
     end,
