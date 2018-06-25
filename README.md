@@ -1,6 +1,26 @@
 # ZLib
+## Contents
 
-### Helper Functions
+|[Helper Functions](#helper-functions)|
+|---|
+
+|[Simple Objects](#simple-objects)||
+|---|---|
+|[Button](#button)|[CheckBox](#checkbox)|
+|[Dropdown](#dropdown)|[EditBox](#editbox)|
+|[Frame](#frame)|[Heading](#heading)|
+|[InteractiveLabel](#interactivelabel)|[Label](#label)|
+|[Slider](#slider)||
+
+|[Complex Objects](#complex-objects)||
+|---|---|
+|[DatePicker](#datepicker)|[DateTimePicker](#datetimepicker)|
+|[Table](#table)|[TimePicker](#timepicker)|
+
+## Helper Functions
+|[Back To Top](#zlib)|
+|---|
+
 |Helper Functions|Parameters|Description|
 |---|---|---|
 |```ZLib:IsDateValid(oDate)```|```oDate``` = date object, such as returned by ```date("*t")```| Returns true if the oDate argument is in the appropriate format and is a valid date.  Checks the ```year```, ```month```, and ```day``` properties.|
@@ -16,36 +36,293 @@
 |```ZLib:GetFullName(sName)```|```sName``` = name of the player.|Returns a unit name in name-realm format.|
 |```ZLib:GetMatch(aTable,value[,sProperty])```|```aTable``` = The collection of values that may contain a match.<br/>```value``` = Value for which you are looking.<br/>```sProperty``` *OPTIONAL* = the name of the property to check against the ```value``` argument.  Required for assosiative arrays.|Returns the value of the first match.|
 
+## Simple Objects
+|[Back To Top](#zlib)|
+|---|
 
-### Simple Object Constructors
-| Object | Constructor | Arguments |
+### Button
+|[Back To Top](#zlib)|
+|---|
+
+Constructor: ZLib.Button:new(AceGUI,dWidth,sText,oCallbacks)
+This is a single button that executes it's OnClick event when the button is clicked.
+
+#### Arguments
+|Argument|Type|Description|
 |---|---|---|
-|Button|```ZLib.Button:new(AceGUI,dWidth,sText,oCallbacks)```|```AceGUI``` = an instance of LibStub("AceGUI-3.0").<br/>```dWidth``` = a decimal value between 0 and 1 that represents the portion of the row the button will occupy.<br/>```sText``` = The text on the button.<br/>```oCallbacks``` = an assosiative array contianing the necessary callbacks for the button.  Callbacks supported are OnEnter, OnClick, and OnLeave.|
-|CheckBox|```ZLib.CheckBox:new(AceGUI,dWidth,bDefaultValue,oCallbacks)```|```AceGUI``` = an instance of LibStub("AceGUI-3.0").<br/>```dWidth``` = a decimal value between 0 and 1 that represents the portion of the row the checkbox will occupy.<br/>```bDefaultValue``` = A boolean value to set whether or not the checkbox is checked.<br/>```oCallbacks``` = an assosiative array contianing the necessary callbacks for the checkbox.  Callbacks supported are OnValueChanged, OnEnter, and OnLeave.|
-|Dropdown|```ZLib.Dropdown:new(AceGUI,dWidth,oOptions,oCallbacks)```|```AceGUI``` = an instance of LibStub("AceGUI-3.0").<br/>```dWidth``` = a decimal value between 0 and 1 that represents the portion of the row the dropdown will occupy.<br/>```oOptions``` = An associative array of data for the dropdown.  See [Dropdown Options](#dropdown-options).<br/>```oCallbacks``` = an assosiative array contianing the necessary callbacks for the dropdown.  Callbacks supported are OnValueChanged, OnEnter, and OnLeave.|
-|EditBox|```ZLib.EditBox:new(AceGUI,dWidth,sDefaultValue,oCallbacks)```|```AceGUI``` = an instance of LibStub("AceGUI-3.0").<br/>```dWidth``` = a decimal value between 0 and 1 that represents the portion of the row the editbox will occupy.<br/>```sDefaultValue``` = The text the editbox will contain when it is created.<br/>```oCallbacks``` = an assosiative array contianing the necessary callbacks for the editbox.  Callbacks supported are OnEnterPressed, OnEnter, and OnLeave.|
-|Heading|```ZLib.Heading:new(AceGUI,dWidth,sText)|```AceGUI``` = an instance of LibStub("AceGUI-3.0").<br/>```dWidth``` = a decimal value between 0 and 1 that represents the portion of the row the heading will occupy.<br/>```sText``` = The text of the heading.|
-|Interactive Label|```ZLib.InteractiveLabel:new(AceGUI,dWidth,sText,oCallbacks)```|```AceGUI``` = an instance of LibStub("AceGUI-3.0").<br/>```dWidth``` = a decimal value between 0 and 1 that represents the portion of the row the interactive label will occupy.<br/>```sText``` = The text the interactive label.<br/>```oCallbacks``` = an assosiative array contianing the necessary callbacks for the interactive label.  Callbacks supported are OnClick, OnEnter, and OnLeave.|
-|Label|```ZLib.Heading:new(AceGUI,dWidth,sText)|```AceGUI``` = an instance of LibStub("AceGUI-3.0").<br/>```dWidth``` = a decimal value between 0 and 1 that represents the portion of the row the label will occupy.<br/>```sText``` = The text of the label.|
-|Slider|```ZLib.Slider:new(AceGUI,dWidth,oOptions,oCallbacks)```|```AceGUI``` = an instance of LibStub("AceGUI-3.0").<br/>```dWidth``` = a decimal value between 0 and 1 that represents the portion of the row the label will occupy.<br/>```oOptions``` = An associative array of data for the slider. See [Slider Options](#slider-options).<br/>```oCallbacks``` = an associative array containing the necessary callbacks for the slider.  Callbacks supported are OnValueChanged.|
+|AceGUI|object|An instance of LibStub("AceGUI-3.0").|
+|dWidth|decimal|A decimal value that represents the relative width of the control within it's parent row.|
+|sText|string|The text that appears on the button.|
+|oCallbacks|object|An object that defines the OnClick, OnEnter, and OnLeave callbacks.|
 
-### Complex Object Constructors
-| Object | Constructor | Arguments |
+#### oCallbacks
+##### OnClick
+Stub: function(control)
+
+|Arguments|Type|Description|
 |---|---|---|
-|DatePicker|||
-|DateTimePicker|||
-|Table||||
-|TimePicker|||
+|control|object|A reference to the control that called this callback.|
+
+##### OnEnter (Optional)
+Stub: function(control)
+
+|Arguments|Type|Description|
+|---|---|---|
+|control|object|A reference to the control that called this callback.|
+
+##### OnLeave (Optional)
+Stub: function(control)
+
+|Arguments|Type|Description|
+|---|---|---|
+|control|object|A reference to the control that called this callback.|
+
+### CheckBox
+|[Back To Top](#zlib)|
+|---|
+
+Constructor: ZLib.CheckBox:new(AceGUI,dWidth,bDefaultValue,oCallbacks)
+
+#### Arguments
+|Argument|Type|Description|
+|---|---|---|
+|AceGUI|object|An instance of LibStub("AceGUI-3.0").|
+|dWidth|decimal|A decimal value that represents the relative width of the control within it's parent row.|
+|bDefaultValue|boolean|A boolean value to set whether or not the checkbox is checked.|
+|oCallbacks|object|An object that defines the OnValueChanged, OnEnter, and OnLeave callbacks.|
+
+#### oCallbacks
+##### OnValueChanged
+Stub: function(control,_,value)
+
+|Arguments|Type|Description|
+|---|---|---|
+|control|object|A reference to the control that called this callback.|
+|_|?|Unknown|
+|value|boolean|The new value of the control.
+
+##### OnEnter (Optional)
+Stub: function(control)
+
+|Arguments|Type|Description|
+|---|---|---|
+|control|object|A reference to the control that called this callback.|
+
+##### OnLeave (Optional)
+Stub: function(control)
+
+|Arguments|Type|Description|
+|---|---|---|
+|control|object|A reference to the control that called this callback.|
+
+### Dropdown
+|[Back To Top](#zlib)|
+|---|
+
+Constructor: ZLib.Dropdown:new(AceGUI,dWidth,oOptions,oCallbacks)
+
+#### Arguments
+|Argument|Type|Description|
+|---|---|---|
+|AceGUI|object|An instance of LibStub("AceGUI-3.0").|
+|dWidth|decimal|A decimal value that represents the relative width of the control within it's parent row.|
+|oOptions|object|An object containing the data for the control.|
+|oCallbacks|object|An object that defines the OnValueChanged, OnEnter, and OnLeave callbacks.|
+
+#### oOptions
+|Property|Type|Description|
+|---|---|---|
+|Values|object|An object containing the key-value pairs that define the options in the dropdown.|
+|ValuesOrder|array|A single-dimension array of keys from the Values object that determines the order in which the options should be listed.|
+|DefaultValue|any|The default value from the Values object that should be selected when the control is created.|
+
+#### oCallbacks
+##### OnValueChanged
+Stub: function(control,_,value)
+
+|Arguments|Type|Description|
+|---|---|---|
+|control|object|A reference to the control that called this callback.|
+|_|?|Unknown|
+|value|boolean|The new value of the control.
+
+##### OnEnter (Optional)
+Stub: function(control)
+
+|Arguments|Type|Description|
+|---|---|---|
+|control|object|A reference to the control that called this callback.|
+
+##### OnLeave (Optional)
+Stub: function(control)
+
+|Arguments|Type|Description|
+|---|---|---|
+|control|object|A reference to the control that called this callback.|
+
+### EditBox
+|[Back To Top](#zlib)|
+|---|
+
+Constructor: ZLib.EditBox:new(AceGUI,dWidth,sDefaultValue,oCallbacks)
+
+|Argument|Type|Description|
+|---|---|---|
+|AceGUI|object|An instance of LibStub("AceGUI-3.0").|
+|dWidth|decimal|A decimal value that represents the relative width of the control within it's parent row.|
+|sDefaultValue|string|The text the editbox will contain when it is created.|
+|oCallbacks|object|An object that defines the OnEnterPressed, OnEnter, and OnLeave callbacks.|
+
+#### oCallbacks
+##### OnEnterPressed
+Stub: function(control,_,value)
+
+|Arguments|Type|Description|
+|---|---|---|
+|control|object|A reference to the control that called this callback.|
+|_|?|Unknown|
+|value|boolean|The new value of the control.
+
+##### OnEnter (Optional)
+Stub: function(control)
+
+|Arguments|Type|Description|
+|---|---|---|
+|control|object|A reference to the control that called this callback.|
+
+##### OnLeave (Optional)
+Stub: function(control)
+
+|Arguments|Type|Description|
+|---|---|---|
+|control|object|A reference to the control that called this callback.|
+
+### Frame
+|[Back To Top](#zlib)|
+|---|
+
+Constructor: ZLib.Frame:new(AceGUI,sLayout,sTitle)
+
+|Argument|Type|Description|
+|---|---|---|
+|AceGUI|object|An instance of LibStub("AceGUI-3.0").|
+|sLayout|string|A string value for the layout of the frame.  Options include "Flow" (Left-to-Right), "List" (top-to-bottom) and "Fill" (first control uses entire frame).|
+|sDefaultValue|string|The text the editbox will contain when it is created.|
+|oCallbacks|object|An object that defines the OnEnterPressed, OnEnter, and OnLeave callbacks.|
+
+#### Functions
+In addition to the normal Ace3 functions, this control also supports the following functions.
+##### Toggle
+Syntax: frame:Toggle();\
+Automatically toggles the visibility of the frame.
+
+### Heading
+|[Back To Top](#zlib)|
+|---|
+
+Constructor: ZLib.Heading:new(AceGUI,dWidth,sText)
+
+|Argument|Type|Description|
+|---|---|---|
+|AceGUI|object|An instance of LibStub("AceGUI-3.0").|
+|dWidth|decimal|A decimal value that represents the relative width of the control within it's parent row.|
+|sText|string|The text of the heading.|
+
+### InteractiveLabel
+|[Back To Top](#zlib)|
+|---|
+
+Constructor: ZLib.InteractiveLabel:new(AceGUI,dWidth,sText,oCallbacks)
+
+|Argument|Type|Description|
+|---|---|---|
+|AceGUI|object|An instance of LibStub("AceGUI-3.0").|
+|dWidth|decimal|A decimal value that represents the relative width of the control within it's parent row.|
+|sText|string|The text of the control.|
+|oCallbacks|object|An object that defines the OnClick, OnEnter, and OnLeave callbacks.|
+
+#### oCallbacks
+##### OnClick
+Stub: function(control)
+
+|Arguments|Type|Description|
+|---|---|---|
+|control|object|A reference to the control that called this callback.|
+
+##### OnEnter (Optional)
+Stub: function(control)
+
+|Arguments|Type|Description|
+|---|---|---|
+|control|object|A reference to the control that called this callback.|
+
+##### OnLeave (Optional)
+Stub: function(control)
+
+|Arguments|Type|Description|
+|---|---|---|
+|control|object|A reference to the control that called this callback.|
+
+### Label
+|[Back To Top](#zlib)|
+|---|
+
+Constructor: ZLib.Label:new(AceGUI,dWidth,sText)
+
+|Argument|Type|Description|
+|---|---|---|
+|AceGUI|object|An instance of LibStub("AceGUI-3.0").|
+|dWidth|decimal|A decimal value that represents the relative width of the control within it's parent row.|
+|sText|string|The text of the control.|
+
+### Slider
+|[Back To Top](#zlib)|
+|---|
+
+Constructor: ZLib.Slider:new(AceGUI,dWidth,oOptions,oCallbacks)
+
+|Argument|Type|Description|
+|---|---|---|
+|AceGUI|object|An instance of LibStub("AceGUI-3.0").|
+|dWidth|decimal|A decimal value that represents the relative width of the control within it's parent row.|
+|oOptions|object|An object containing the data for the control.|
+|oCallbacks|object|An object that defines the OnValueChanged callback.|
+
+#### oOptions
+|Property|Type|Description|
+|---|---|---|
+|Min|number|The minimum value the slider can represent.|
+|Max|number|The maximum value the slider can represent.|
+|Step|number|The amount of increment for each step of the slider.|
+|DefaultValue|number|The value of the slider when the control is created.|
+
+#### oCallbacks
+##### OnValueChanged
+Stub: function(control,_,value)
+
+|Arguments|Type|Description|
+|---|---|---|
+|control|object|A reference to the control that called this callback.|
+|_|?|Unknown|
+|value|boolean|The new value of the control.
 
 
-#### Dropdown Options
- * Values = An associative array that represents the options in the dropdown.  The values in the associative array are the display text, and the keys are set as the dropdown's value when an option is chosen.
- * ValuesOrder = A standard array of keys in from the Values table in the order you wish them to appear in the drop down list.
- * Default Value = The key of the option you wish to have selected when the control is created.
- 
- #### Slider Options
-* Label = Text for the slider's built-in label.
-* Min = The minimum value the slider will represent.
-* Max = The maximum value the slider will represent.
-* Step = The increment value of each step of the slider.
-* DefaultValue = The default value of the slider when it is created.
+## Complex Objects
+|[Back To Top](#zlib)|
+|---|
+
+### DatePicker
+|[Back To Top](#zlib)|
+|---|
+
+### DateTimePicker
+|[Back To Top](#zlib)|
+|---|
+
+### Table
+|[Back To Top](#zlib)|
+|---|
+
+### TimePicker
+|[Back To Top](#zlib)|
+|---|
