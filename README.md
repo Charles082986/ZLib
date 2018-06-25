@@ -1,4 +1,22 @@
 # ZLib
+## Contents
+
+* [Helper Functions](#helper-functions)
+* [Simple Objects](#simple-objects)
+  * [Button](#button)
+  * [CheckBox](#checkbox)
+  * [Dropdown](#dropdown)
+  * [EditBox](#editbox)
+  * [Heading](#heading)
+  * [InteractiveLabel](#interactivelabel)
+  * [Label](#label)
+  * [Slider](#slider)
+* [Complex Objects]
+  * [DatePicker](#datepicker)
+  * [DateTimePicker](#datetimepicker)
+  * [Table](#table)
+  * [TimePicker](#timepicker)
+
 
 ### Helper Functions
 |Helper Functions|Parameters|Description|
@@ -21,7 +39,6 @@
 ### Simple Object Constructors
 | Object | Constructor | Arguments |
 |---|---|---|
-|Dropdown|```ZLib.Dropdown:new(AceGUI,dWidth,oOptions,oCallbacks)```|```AceGUI``` = an instance of LibStub("AceGUI-3.0").<br/>```dWidth``` = a decimal value between 0 and 1 that represents the portion of the row the dropdown will occupy.<br/>```oOptions``` = An associative array of data for the dropdown.  See [Dropdown Options](#dropdown-options).<br/>```oCallbacks``` = an assosiative array contianing the necessary callbacks for the dropdown.  Callbacks supported are OnValueChanged, OnEnter, and OnLeave.|
 |EditBox|```ZLib.EditBox:new(AceGUI,dWidth,sDefaultValue,oCallbacks)```|```AceGUI``` = an instance of LibStub("AceGUI-3.0").<br/>```dWidth``` = a decimal value between 0 and 1 that represents the portion of the row the editbox will occupy.<br/>```sDefaultValue``` = The text the editbox will contain when it is created.<br/>```oCallbacks``` = an assosiative array contianing the necessary callbacks for the editbox.  Callbacks supported are OnEnterPressed, OnEnter, and OnLeave.|
 |Heading|```ZLib.Heading:new(AceGUI,dWidth,sText)```|```AceGUI``` = an instance of LibStub("AceGUI-3.0").<br/>```dWidth``` = a decimal value between 0 and 1 that represents the portion of the row the heading will occupy.<br/>```sText``` = The text of the heading.|
 |Interactive Label|```ZLib.InteractiveLabel:new(AceGUI,dWidth,sText,oCallbacks)```|```AceGUI``` = an instance of LibStub("AceGUI-3.0").<br/>```dWidth``` = a decimal value between 0 and 1 that represents the portion of the row the interactive label will occupy.<br/>```sText``` = The text the interactive label.<br/>```oCallbacks``` = an assosiative array contianing the necessary callbacks for the interactive label.  Callbacks supported are OnClick, OnEnter, and OnLeave.|
@@ -83,8 +100,65 @@ Stub: function(control,_,value)
 |_|?|Unknown|
 |value|boolean|The new value of the control.
 
+##### OnEnter (Optional)
+Stub: function(control)
+
+|Arguments|Type|Description|
+|---|---|---|
+|control|object|A reference to the control that called this callback.|
+
+##### OnLeave (Optional)
+Stub: function(control)
+
+|Arguments|Type|Description|
+|---|---|---|
+|control|object|A reference to the control that called this callback.|
+
+### Dropdown
+Constructor: ZLib.Dropdown:new(AceGUI,dWidth,oOptions,oCallbacks)
+
+#### Arguments
+|Argument|Type|Description|
+|---|---|---|
+|AceGUI|object|An instance of LibStub("AceGUI-3.0").|
+|dWidth|decimal|A decimal value that represents the relative width of the control within it's parent row.|
+|oOptions|object|An associative array of data for the dropdown.|
+|oCallbacks|object|An object that defines the OnValueChanged, OnEnter, and OnLeave callbacks.|
+
+#### oOptions
+|Property|Type|Description|
+|---|---|---|
+|Values|object|An object containing the key-value pairs that define the options in the dropdown.|
+|ValuesOrder|array|A single-dimension array of keys from the Values object that determines the order in which the options should be listed.|
+|DefaultValue|any|The default value from the Values object that should be selected when the control is created.|
+
+#### oCallbacks
+##### OnValueChanged
+Stub: function(control,_,value)
+
+|Arguments|Type|Description|
+|---|---|---|
+|control|object|A reference to the control that called this callback.|
+|_|?|Unknown|
+|value|boolean|The new value of the control.
+
+##### OnEnter (Optional)
+Stub: function(control)
+
+|Arguments|Type|Description|
+|---|---|---|
+|control|object|A reference to the control that called this callback.|
+
+##### OnLeave (Optional)
+Stub: function(control)
+
+|Arguments|Type|Description|
+|---|---|---|
+|control|object|A reference to the control that called this callback.|
 
 
+
+## Complex Objects
 ### Complex Object Constructors
 | Object | Constructor | Arguments |
 |---|---|---|
