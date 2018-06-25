@@ -3,6 +3,7 @@
     <Script file="Checkbox.lua"/>
     <Script file="Dropdown.lua"/>
     <Script file="EditBox.lua"/>
+    <Script file="Frame.lua"/>
     <Script file="Heading.lua"/>
     <Script file="InteractiveLabel.lua"/>
     <Script file="Label.lua"/>
