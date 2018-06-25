@@ -6,8 +6,8 @@ ZLib.Button = {
         local button = AceGUI:Create("Button");
         button:SetText(sText);
         button:SetCallback("OnClick", oCallbacks.OnClick);
-        if oCallbacks.OnEnter then button:SetCallback("OnEnter",function(button) oCallbacks.OnEnter(button,unpack(oCallbackArgs.OnEnter)); end); end
-        if oCallbacks.OnLEave then button:SetCallback("OnLeave",function(button) oCallbacks.OnLeave(button,unpack(oCallbackArgs.OnLeave)); end); end
+        if oCallbacks.OnEnter then button:SetCallback("OnEnter",oCallbacks.OnEnter); end
+        if oCallbacks.OnLEave then button:SetCallback("OnLeave",oCallbacks.OnLeave); end
         button:SetRelativeWidth(dWidth);
         return button;
     end,
