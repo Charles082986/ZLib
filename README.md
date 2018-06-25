@@ -21,8 +21,6 @@
 ### Simple Object Constructors
 | Object | Constructor | Arguments |
 |---|---|---|
-|[Button](#button)|```ZLib.Button:new(AceGUI,dWidth,sText,oCallbacks)```|```AceGUI``` = an instance of LibStub("AceGUI-3.0").<br/>```dWidth``` = a decimal value between 0 and 1 that represents the portion of the row the button will occupy.<br/>```sText``` = The text on the button.<br/>```oCallbacks``` = an assosiative array contianing the necessary callbacks for the button.  Callbacks supported are OnEnter, OnClick, and OnLeave.|
-|CheckBox|```ZLib.CheckBox:new(AceGUI,dWidth,bDefaultValue,oCallbacks)```|```AceGUI``` = an instance of LibStub("AceGUI-3.0").<br/>```dWidth``` = a decimal value between 0 and 1 that represents the portion of the row the checkbox will occupy.<br/>```bDefaultValue``` = A boolean value to set whether or not the checkbox is checked.<br/>```oCallbacks``` = an assosiative array contianing the necessary callbacks for the checkbox.  Callbacks supported are OnValueChanged, OnEnter, and OnLeave.|
 |Dropdown|```ZLib.Dropdown:new(AceGUI,dWidth,oOptions,oCallbacks)```|```AceGUI``` = an instance of LibStub("AceGUI-3.0").<br/>```dWidth``` = a decimal value between 0 and 1 that represents the portion of the row the dropdown will occupy.<br/>```oOptions``` = An associative array of data for the dropdown.  See [Dropdown Options](#dropdown-options).<br/>```oCallbacks``` = an assosiative array contianing the necessary callbacks for the dropdown.  Callbacks supported are OnValueChanged, OnEnter, and OnLeave.|
 |EditBox|```ZLib.EditBox:new(AceGUI,dWidth,sDefaultValue,oCallbacks)```|```AceGUI``` = an instance of LibStub("AceGUI-3.0").<br/>```dWidth``` = a decimal value between 0 and 1 that represents the portion of the row the editbox will occupy.<br/>```sDefaultValue``` = The text the editbox will contain when it is created.<br/>```oCallbacks``` = an assosiative array contianing the necessary callbacks for the editbox.  Callbacks supported are OnEnterPressed, OnEnter, and OnLeave.|
 |Heading|```ZLib.Heading:new(AceGUI,dWidth,sText)```|```AceGUI``` = an instance of LibStub("AceGUI-3.0").<br/>```dWidth``` = a decimal value between 0 and 1 that represents the portion of the row the heading will occupy.<br/>```sText``` = The text of the heading.|
@@ -30,7 +28,8 @@
 |Label|```ZLib.Heading:new(AceGUI,dWidth,sText)|```AceGUI``` = an instance of LibStub("AceGUI-3.0").<br/>```dWidth``` = a decimal value between 0 and 1 that represents the portion of the row the label will occupy.<br/>```sText``` = The text of the label.|
 |Slider|```ZLib.Slider:new(AceGUI,dWidth,oOptions,oCallbacks)```|```AceGUI``` = an instance of LibStub("AceGUI-3.0").<br/>```dWidth``` = a decimal value between 0 and 1 that represents the portion of the row the label will occupy.<br/>```oOptions``` = An associative array of data for the slider. See [Slider Options](#slider-options).<br/>```oCallbacks``` = an associative array containing the necessary callbacks for the slider.  Callbacks supported are OnValueChanged.|
 
-### Button [ZLib.Button:new(AceGUI,dWidth,sText,oCallbacks)]
+### Button 
+Constructor: ZLib.Button:new(AceGUI,dWidth,sText,oCallbacks)
 This is a single button that executes it's OnClick event when the button is clicked.
 
 #### Arguments
@@ -62,6 +61,21 @@ Stub: function(buttion)
 |Arguments|Type|Description|
 |---|---|---|
 |button|object|A reference to the button that called this callback.|
+
+### CheckBox
+Constructor: ZLib.CheckBox:new(AceGUI,dWidth,bDefaultValue,oCallbacks)
+
+#### Arguments
+|Argument|Type|Description|
+|---|---|---|
+|AceGUI|object|An instance of LibStub("AceGUI-3.0").|
+|dWidth|decimal|A decimal value that represents the relative width of the control within it's parent row.|
+|bDefaultValue|boolean|A boolean value to set whether or not the checkbox is checked.|
+|oCallbacks|object|An object that defines the OnValueChanged, OnEnter, and OnLeave callbacks.|
+
+#### oCallbacks
+##### OnValueChanged
+Stub: function(checkbox,______,value)
 
 
 ### Complex Object Constructors
