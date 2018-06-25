@@ -2,21 +2,19 @@
 ## Contents
 
 * [Helper Functions](#helper-functions)
-* [Simple Objects](#simple-objects)
-  * [Button](#button)
-  * [CheckBox](#checkbox)
-  * [Dropdown](#dropdown)
-  * [EditBox](#editbox)
-  * [Frame](#frame)
-  * [Heading](#heading)
-  * [InteractiveLabel](#interactivelabel)
-  * [Label](#label)
-  * [Slider](#slider)
-* [Complex Objects](#complex-objects)
-  * [DatePicker](#datepicker)
-  * [DateTimePicker](#datetimepicker)
-  * [Table](#table)
-  * [TimePicker](#timepicker)
+
+|[Simple Objects](#simple-objects)||
+|---|---|
+|[Button](#button)|[CheckBox](#checkbox)|
+|[Dropdown](#dropdown)|[EditBox](#editbox)|
+|[Frame](#frame)|[Heading](#heading)|
+|[InteractiveLabel](#interactivelabel)|[Label](#label)|
+|[Slider](#slider)||
+
+|[Complex Objects](#complex-objects)||
+|---|---|
+|[DatePicker](#datepicker)|[DateTimePicker](#datetimepicker)|
+|[Table](#table)|[TimePicker](#timepicker)|
 
 ## Helper Functions
 |Helper Functions|Parameters|Description|
@@ -149,6 +147,7 @@ Stub: function(control)
 
 ### EditBox
 Constructor: ZLib.EditBox:new(AceGUI,dWidth,sDefaultValue,oCallbacks)
+
 |Argument|Type|Description|
 |---|---|---|
 |AceGUI|object|An instance of LibStub("AceGUI-3.0").|
