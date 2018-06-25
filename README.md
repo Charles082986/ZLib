@@ -35,13 +35,6 @@
 
 ## Simple Objects
 
-### Simple Object Constructors
-| Object | Constructor | Arguments |
-|---|---|---|
-
-|Label|```ZLib.Heading:new(AceGUI,dWidth,sText)|```AceGUI``` = an instance of LibStub("AceGUI-3.0").<br/>```dWidth``` = a decimal value between 0 and 1 that represents the portion of the row the label will occupy.<br/>```sText``` = The text of the label.|
-|Slider|```ZLib.Slider:new(AceGUI,dWidth,oOptions,oCallbacks)```|```AceGUI``` = an instance of LibStub("AceGUI-3.0").<br/>```dWidth``` = a decimal value between 0 and 1 that represents the portion of the row the label will occupy.<br/>```oOptions``` = An associative array of data for the slider. See [Slider Options](#slider-options).<br/>```oCallbacks``` = an associative array containing the necessary callbacks for the slider.  Callbacks supported are OnValueChanged.|
-
 ### Button 
 Constructor: ZLib.Button:new(AceGUI,dWidth,sText,oCallbacks)
 This is a single button that executes it's OnClick event when the button is clicked.
@@ -119,7 +112,7 @@ Constructor: ZLib.Dropdown:new(AceGUI,dWidth,oOptions,oCallbacks)
 |---|---|---|
 |AceGUI|object|An instance of LibStub("AceGUI-3.0").|
 |dWidth|decimal|A decimal value that represents the relative width of the control within it's parent row.|
-|oOptions|object|An associative array of data for the dropdown.|
+|oOptions|object|An object containing the data for the control.|
 |oCallbacks|object|An object that defines the OnValueChanged, OnEnter, and OnLeave callbacks.|
 
 #### oOptions
@@ -196,7 +189,7 @@ Constructor: ZLib.Heading:new(AceGUI,dWidth,sText)
 |dWidth|decimal|A decimal value that represents the relative width of the control within it's parent row.|
 |sText|string|The text of the heading.|
 
-### Interactive Label
+### InteractiveLabel
 Constructor: ZLib.InteractiveLabel:new(AceGUI,dWidth,sText,oCallbacks)
 
 |Argument|Type|Description|
@@ -228,23 +221,47 @@ Stub: function(control)
 |---|---|---|
 |control|object|A reference to the control that called this callback.|
 
-## Complex Objects
-### Complex Object Constructors
-| Object | Constructor | Arguments |
-|---|---|---|
-|DatePicker|||
-|DateTimePicker|||
-|Table||||
-|TimePicker|||
+### Label
+Constructor: ZLib.Label:new(AceGUI,dWidth,sText)
 
-#### Dropdown Options
- * Values = An associative array that represents the options in the dropdown.  The values in the associative array are the display text, and the keys are set as the dropdown's value when an option is chosen.
- * ValuesOrder = A standard array of keys in from the Values table in the order you wish them to appear in the drop down list.
- * Default Value = The key of the option you wish to have selected when the control is created.
- 
- #### Slider Options
-* Label = Text for the slider's built-in label.
-* Min = The minimum value the slider will represent.
-* Max = The maximum value the slider will represent.
-* Step = The increment value of each step of the slider.
-* DefaultValue = The default value of the slider when it is created.
+|Argument|Type|Description|
+|---|---|---|
+|AceGUI|object|An instance of LibStub("AceGUI-3.0").|
+|dWidth|decimal|A decimal value that represents the relative width of the control within it's parent row.|
+|sText|string|The text of the control.|
+
+### Slider
+Constructor: ZLib.Slider:new(AceGUI,dWidth,oOptions,oCallbacks)
+
+|Argument|Type|Description|
+|---|---|---|
+|AceGUI|object|An instance of LibStub("AceGUI-3.0").|
+|dWidth|decimal|A decimal value that represents the relative width of the control within it's parent row.|
+|oOptions|object|An object containing the data for the control.|
+|oCallbacks|object|An object that defines the OnValueChanged callback.|
+
+#### oOptions
+|Property|Type|Description|
+|---|---|---|
+|Min|number|The minimum value the slider can represent.|
+|Max|number|The maximum value the slider can represent.|
+|Step|number|The amount of increment for each step of the slider.|
+|DefaultValue|number|The value of the slider when the control is created.|
+
+#### oCallbacks
+##### OnValueChanged
+Stub: function(control,_,value)
+
+|Arguments|Type|Description|
+|---|---|---|
+|control|object|A reference to the control that called this callback.|
+|_|?|Unknown|
+|value|boolean|The new value of the control.
+
+
+## Complex Objects
+
+### DatePicker
+### DateTimePicker
+### Table
+### TimePicker
