@@ -5,7 +5,7 @@ ZLib.Button = {
         oCallbacks = self:__ValidateCallbacks(oCallbacks);
         local button = AceGUI:Create("Button");
         button:SetText(sText);
-        button:SetCallback("OnClick", function(button) oCallbacks.OnClick(button,unpack(oCallbackArgs.OnClick)); end);
+        button:SetCallback("OnClick", oCallbacks.OnClick);
         if oCallbacks.OnEnter then button:SetCallback("OnEnter",function(button) oCallbacks.OnEnter(button,unpack(oCallbackArgs.OnEnter)); end); end
         if oCallbacks.OnLEave then button:SetCallback("OnLeave",function(button) oCallbacks.OnLeave(button,unpack(oCallbackArgs.OnLeave)); end); end
         button:SetRelativeWidth(dWidth);
