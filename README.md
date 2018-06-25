@@ -7,6 +7,7 @@
   * [CheckBox](#checkbox)
   * [Dropdown](#dropdown)
   * [EditBox](#editbox)
+  * [Frame](#frame)
   * [Heading](#heading)
   * [InteractiveLabel](#interactivelabel)
   * [Label](#label)
@@ -179,6 +180,21 @@ Stub: function(control)
 |---|---|---|
 |control|object|A reference to the control that called this callback.|
 
+### Frame
+Constructor: ZLib.Frame:new(AceGUI,sLayout,sTitle)
+
+|Argument|Type|Description|
+|---|---|---|
+|AceGUI|object|An instance of LibStub("AceGUI-3.0").|
+|sLayout|string|A string value for the layout of the frame.  Options include "Flow" (Left-to-Right), "List" (top-to-bottom) and "Fill" (first control uses entire frame).|
+|sDefaultValue|string|The text the editbox will contain when it is created.|
+|oCallbacks|object|An object that defines the OnEnterPressed, OnEnter, and OnLeave callbacks.|
+
+#### Functions
+In addition to the normal Ace3 functions, this control also supports the following functions.
+##### Toggle
+Syntax: frame:Toggle();
+Automatically toggles the visibility of the frame.
 
 ### Heading
 Constructor: ZLib.Heading:new(AceGUI,dWidth,sText)
