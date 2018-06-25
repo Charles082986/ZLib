@@ -11,14 +11,13 @@
   * [InteractiveLabel](#interactivelabel)
   * [Label](#label)
   * [Slider](#slider)
-* [Complex Objects]
+* [Complex Objects](#complex-objects)
   * [DatePicker](#datepicker)
   * [DateTimePicker](#datetimepicker)
   * [Table](#table)
   * [TimePicker](#timepicker)
 
-
-### Helper Functions
+## Helper Functions
 |Helper Functions|Parameters|Description|
 |---|---|---|
 |```ZLib:IsDateValid(oDate)```|```oDate``` = date object, such as returned by ```date("*t")```| Returns true if the oDate argument is in the appropriate format and is a valid date.  Checks the ```year```, ```month```, and ```day``` properties.|
@@ -39,9 +38,7 @@
 ### Simple Object Constructors
 | Object | Constructor | Arguments |
 |---|---|---|
-|EditBox|```ZLib.EditBox:new(AceGUI,dWidth,sDefaultValue,oCallbacks)```|```AceGUI``` = an instance of LibStub("AceGUI-3.0").<br/>```dWidth``` = a decimal value between 0 and 1 that represents the portion of the row the editbox will occupy.<br/>```sDefaultValue``` = The text the editbox will contain when it is created.<br/>```oCallbacks``` = an assosiative array contianing the necessary callbacks for the editbox.  Callbacks supported are OnEnterPressed, OnEnter, and OnLeave.|
-|Heading|```ZLib.Heading:new(AceGUI,dWidth,sText)```|```AceGUI``` = an instance of LibStub("AceGUI-3.0").<br/>```dWidth``` = a decimal value between 0 and 1 that represents the portion of the row the heading will occupy.<br/>```sText``` = The text of the heading.|
-|Interactive Label|```ZLib.InteractiveLabel:new(AceGUI,dWidth,sText,oCallbacks)```|```AceGUI``` = an instance of LibStub("AceGUI-3.0").<br/>```dWidth``` = a decimal value between 0 and 1 that represents the portion of the row the interactive label will occupy.<br/>```sText``` = The text the interactive label.<br/>```oCallbacks``` = an assosiative array contianing the necessary callbacks for the interactive label.  Callbacks supported are OnClick, OnEnter, and OnLeave.|
+
 |Label|```ZLib.Heading:new(AceGUI,dWidth,sText)|```AceGUI``` = an instance of LibStub("AceGUI-3.0").<br/>```dWidth``` = a decimal value between 0 and 1 that represents the portion of the row the label will occupy.<br/>```sText``` = The text of the label.|
 |Slider|```ZLib.Slider:new(AceGUI,dWidth,oOptions,oCallbacks)```|```AceGUI``` = an instance of LibStub("AceGUI-3.0").<br/>```dWidth``` = a decimal value between 0 and 1 that represents the portion of the row the label will occupy.<br/>```oOptions``` = An associative array of data for the slider. See [Slider Options](#slider-options).<br/>```oCallbacks``` = an associative array containing the necessary callbacks for the slider.  Callbacks supported are OnValueChanged.|
 
@@ -156,7 +153,80 @@ Stub: function(control)
 |---|---|---|
 |control|object|A reference to the control that called this callback.|
 
+### EditBox
+Constructor: ZLib.EditBox:new(AceGUI,dWidth,sDefaultValue,oCallbacks)
+|Argument|Type|Description|
+|---|---|---|
+|AceGUI|object|An instance of LibStub("AceGUI-3.0").|
+|dWidth|decimal|A decimal value that represents the relative width of the control within it's parent row.|
+|sDefaultValue|string|The text the editbox will contain when it is created.|
+|oCallbacks|object|An object that defines the OnEnterPressed, OnEnter, and OnLeave callbacks.|
 
+#### oCallbacks
+##### OnEnterPressed
+Stub: function(control,_,value)
+
+|Arguments|Type|Description|
+|---|---|---|
+|control|object|A reference to the control that called this callback.|
+|_|?|Unknown|
+|value|boolean|The new value of the control.
+
+##### OnEnter (Optional)
+Stub: function(control)
+
+|Arguments|Type|Description|
+|---|---|---|
+|control|object|A reference to the control that called this callback.|
+
+##### OnLeave (Optional)
+Stub: function(control)
+
+|Arguments|Type|Description|
+|---|---|---|
+|control|object|A reference to the control that called this callback.|
+
+
+### Heading
+Constructor: ZLib.Heading:new(AceGUI,dWidth,sText)
+
+|Argument|Type|Description|
+|---|---|---|
+|AceGUI|object|An instance of LibStub("AceGUI-3.0").|
+|dWidth|decimal|A decimal value that represents the relative width of the control within it's parent row.|
+|sText|string|The text of the heading.|
+
+### Interactive Label
+Constructor: ZLib.InteractiveLabel:new(AceGUI,dWidth,sText,oCallbacks)
+
+|Argument|Type|Description|
+|---|---|---|
+|AceGUI|object|An instance of LibStub("AceGUI-3.0").|
+|dWidth|decimal|A decimal value that represents the relative width of the control within it's parent row.|
+|sText|string|The text of the control.|
+|oCallbacks|object|An object that defines the OnClick, OnEnter, and OnLeave callbacks.|
+
+#### oCallbacks
+##### OnClick
+Stub: function(control)
+
+|Arguments|Type|Description|
+|---|---|---|
+|control|object|A reference to the control that called this callback.|
+
+##### OnEnter (Optional)
+Stub: function(control)
+
+|Arguments|Type|Description|
+|---|---|---|
+|control|object|A reference to the control that called this callback.|
+
+##### OnLeave (Optional)
+Stub: function(control)
+
+|Arguments|Type|Description|
+|---|---|---|
+|control|object|A reference to the control that called this callback.|
 
 ## Complex Objects
 ### Complex Object Constructors
