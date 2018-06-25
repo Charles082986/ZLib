@@ -41,7 +41,7 @@ ZLib.TimePicker = {
     end,
     __BuildGetValueHandler = function()
         return function(self)
-            return self:__Time;
+            return self.__Time;
         end
     end,
     __CreateHoursDropdown = function(self,AceGUI,iDefaultValue,callback)
