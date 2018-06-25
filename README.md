@@ -193,7 +193,7 @@ Constructor: ZLib.Frame:new(AceGUI,sLayout,sTitle)
 #### Functions
 In addition to the normal Ace3 functions, this control also supports the following functions.
 ##### Toggle
-Syntax: frame:Toggle();
+Syntax: frame:Toggle();\
 Automatically toggles the visibility of the frame.
 
 ### Heading
