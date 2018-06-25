@@ -44,18 +44,21 @@ This is a single button that executes it's OnClick event when the button is clic
 #### oCallbacks
 ##### OnClick
 Stub: function(button)
+
 |Arguments|Type|Description|
 |---|---|---|
 |button|object|A reference to the button that called this callback.|
 
 ##### OnEnter (Optional)
 Stub: function(buttion)
+
 |Arguments|Type|Description|
 |---|---|---|
 |button|object|A reference to the button that called this callback.|
 
 ##### OnLeave (Optional)
 Stub: function(buttion)
+
 |Arguments|Type|Description|
 |---|---|---|
 |button|object|A reference to the button that called this callback.|
