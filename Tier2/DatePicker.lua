@@ -1,5 +1,6 @@
 ZLib.DatePicker = {
     new = function(self,AceGUI,dWidth,oOptions,oCallbacks)
+        ZLib.Debug:Print('Creating Date Picker');
         local currentDate = date("*t");
         if not AceGUI then AceGUI = LibStub("AceGUI-3.0"); end
         oOptions = self:__ValidateOptions(oOptions,currentDate);
