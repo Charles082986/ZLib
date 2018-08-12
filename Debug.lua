@@ -1,5 +1,5 @@
 ZLib.Debug = {
-    IsDev = true,
+    IsDev = false,
     Print = function(self,message)
         if self.IsDev then
             print("ZLib Debug: " .. message);

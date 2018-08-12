@@ -14,9 +14,13 @@ function ZLib.IsDateTimeValid(self,dateTime)
     return self:IsDateValid(dateTime) and self:IsTimeValid(dateTime);
 end
 function ZLib.IsTableValid(self,list)
+    ZLib.Debug:Print('Validating Table');
+    ZLib.Debug:Print(tostring(list));
+    ZLib.Debug:Print(type(list));
     return list ~= nil and type(list) == "table";
 end
 function ZLib.IsTimeValid(self,time)
+    ZLib.Debug:Print("Validating Time: " .. tostring(time));
     return time ~= nil and self:IsNumberValid(time.hour) and self:IsNumberValid(time.min) and self:IsNumberValid(time.sec)
         and time.hour >= 0 and time.hour <= 23 and time.min >= 0 and time.min <= 59 and time.sec >= 0 and time.sec <= 59;
 end
@@ -31,10 +35,13 @@ function ZLib.Trim(self,s)
     return (s:gsub("^%s*(.-)%s*$", "%1"))
 end
 function ZLib.CreateIntegerList(self,minValue,maxValue)
+    ZLib.Debug:Print('Creating Integer List');
     local output = {};
     for i = minValue,maxValue do
         output[i] = i;
+        ZLib.Debug:Print(tostring(i) .. ': ' .. tostring(i));
     end
+    ZLib.Debug:Print(tostring(output));
     return output;
 end
 function ZLib.MakeTooltip(self,link)
