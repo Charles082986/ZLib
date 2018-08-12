@@ -26,6 +26,7 @@ ZLib.DateTimePicker = {
         frame.DatePicker = frame.children[1];
         frame.TimePicker = frame.children[2];
         ZLib.Debug:Print('DateTimePicker created');
+        return frame;
     end,
     __BuildValueChangedHandler = function(self,oCallbacks)
         return function(self,picker,dtObject,key,value,error)

@@ -1,6 +1,5 @@
 ZLib.TimePicker = {
     new = function(self,AceGUI,dWidth,oOptions,oCallbacks)
-        ZLib.Debug.IsDev = true;
         ZLib.Debug:Print('Creating Time Picker');
         if not AceGUI then AceGUI = LibStub("AceGUI-3.0"); end
         oOptions = self:__ValidateOptions(oOptions);
@@ -27,7 +26,6 @@ ZLib.TimePicker = {
         root:AddChild(root.MinDropdown);
         root:AddChild(root.SecDropdown);
         ZLib.Debug:Print('TimePicker Created.');
-        ZLib.Debug.IsDev = false;
         return root;
     end,
     __BuildValueChangedCallback = function(self,oCallbacks)
@@ -75,10 +73,10 @@ ZLib.TimePicker = {
         oCallbacks.OnValueChanged = function(me,_,key,checked) callback("min",key); end;
         return ZLib.Dropdown:new(AceGUI,0.45,oOptions,oCallbacks);
     end,
-    __CreateHoursDropdown = function(self,AceGUI,iDefaultValue,callback)
+    __CreateSecsDropdown = function(self,AceGUI,iDefaultValue,callback)
         local oOptions = {};
         local oCallbacks = {};
-        oOptions.Values = ZLib:__CreateIntegerList(0,59);
+        oOptions.Values = ZLib:CreateIntegerList(0,59);
         oOptions.DefaultValue = iDefaultValue;
         oCallbacks.OnValueChanged = function(me,_,key,checked) callback("sec",key); end;
         return ZLib.Dropdown:new(AceGUI,0.45,oOptions,oCallbacks);
